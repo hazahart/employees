@@ -1,0 +1,17 @@
+# Seguridad
+.env
+.env.local
+.env.backup
+
+# Dependencias
+/vendor/
+
+# logs y Sistema
+error_log
+*.log
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.swp
