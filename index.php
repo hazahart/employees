@@ -7,7 +7,7 @@ $stmtDept = $pdo->query("SELECT dept_name FROM departments ORDER BY dept_name");
 $departamentos = $stmtDept->fetchAll(PDO::FETCH_COLUMN);
 
 $reporte2 = $pdo->query("SELECT * FROM v_managers")->fetchAll();
-$reporte3 = $pdo->query("SELECT * FROM v_mejor_pagado")->fetchAll();
+$reporte3 = $pdo->query("SELECT * FROM v_mejor_pagado ORDER BY salary DESC")->fetchAll();
 $reporte4 = $pdo->query("SELECT * FROM v_contrataciones")->fetchAll();
 $reporte5 = $pdo->query("SELECT * FROM v_stats_dept")->fetchAll();
 
@@ -31,7 +31,8 @@ $jsonBrechas = json_encode(array_column($reporte5, 'brecha_salarial'));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Examen Diagnóstico Big Data</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/2.3.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" integrity="sha384-q6bAgUAsga3oT16XWJ1toXdKcHmBp45jM5roe3RCQ6dET9xGL89Qmpx4tJAI2pm2" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/2.3.6/css/dataTables.bootstrap5.min.css" rel="stylesheet"
+        integrity="sha384-q6bAgUAsga3oT16XWJ1toXdKcHmBp45jM5roe3RCQ6dET9xGL89Qmpx4tJAI2pm2" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
 </head>
 
@@ -166,7 +167,7 @@ $jsonBrechas = json_encode(array_column($reporte5, 'brecha_salarial'));
                     </div>
                     <div class="col-md-8">
                         <div class="cupertino-card">
-                            <h3>5. Estadísticas Generales</h3>
+                            <h3>Estadísticas Generales</h3>
                             <table class="table">
                                 <thead>
                                     <tr>
